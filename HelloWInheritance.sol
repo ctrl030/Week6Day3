@@ -124,6 +124,12 @@ contract HelloWInheritance is Ownable, Destroyable{
         return (creators[index]);
     }
     
+    function withdrawAll() public onlyOwner returns(uint) {
+        uint toTransfer = balance;
+        balance = 0;
+        owner.transfer(toTransfer);
+        return toTransfer;
+    }
 }
 
 
