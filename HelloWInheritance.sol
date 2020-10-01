@@ -1,4 +1,3 @@
-import "./Ownable.sol";
 import "./Destroyable.sol";
 
 pragma solidity 0.5.12;
