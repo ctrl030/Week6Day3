@@ -3,7 +3,7 @@ import "./Destroyable.sol";
 
 pragma solidity 0.5.12;
 
-contract HelloWInheritance is Ownable, Destroyable{
+contract HelloWInheritance is Destroyable{
     
     struct Person {
         string name;
