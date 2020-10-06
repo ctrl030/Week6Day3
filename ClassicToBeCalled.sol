@@ -2,7 +2,7 @@ import "./Destroyable.sol";
 
 pragma solidity 0.5.12;
 
-contract ClassicToBeCalled is Destroyable{
+contract classicToGetCalled is Destroyable{
     
     struct Person {
         string name;

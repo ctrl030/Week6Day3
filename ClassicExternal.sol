@@ -2,21 +2,24 @@ import "./Destroyable.sol";
 
 pragma solidity 0.5.12;
 
-
-//Interface, holds the function headers of the functions from the contract we want to call
-contract ClassicToBeCalled {
-    function createPerson (string memory nameE2, uint ageE2, uint heightE2) public payable; 
+contract classicToGetCalled {
+    function createPerson (string memory name1, uint age1, uint height1) public payable; 
     
 }
 
-contract externalCreatePerson is Destroyable{
+contract externalCreatePerson is Destroyable {
+    // IClassicToBeCalled externalContract;
+    // constructor (address externalAddress) {
+    //0xddaAd340b0f1Ef65169Ae5E41A8b10776a75482d
+    //     externalContract = IClassicToBeCalled( externalAddress );
+    //}
     
-    ClassicToBeCalled instance = ClassicToBeCalled( putDeployedClassicToBeCalledContractAddressHere );
-       
-    //this function calls the createPerson function in ClassicToBeCalled.sol and forwards any ether to that contract as well
-    function externalCallPerson (string memory nameE1, uint ageE1, uint heightE1) public payable {
-                                  
-        //the double parenthesis should be read as getting executed in order from left to right. It's like a modification to the functiona call 
-        instance.createPerson.value(msg.value)(nameE1, ageE1, heightE1); 
+   // put in the correct address of the deployed contract to be called
+   classicToGetCalled externalContract = classicToGetCalled (0xd9145CCE52D386f254917e481eB44e9943F39138);
+   
+    function classicExternalCaller (string memory nameE2, uint ageE2, uint heightE2) public payable {
+                                
+        externalContract.createPerson.value(msg.value)(nameE2, ageE2, heightE2);
+        
     }
 }
